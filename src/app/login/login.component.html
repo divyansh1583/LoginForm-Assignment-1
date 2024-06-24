@@ -1,26 +1,28 @@
-<form [formGroup]="loginForm" (ngSubmit)="saveForm()">
-
-    <div>
-      <label for="email">First Name:</label>
-      <input type="text" id="email" formControlName="email">
-      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
-        <span>First name is required.</span>
+<form [formGroup]="loginForm" (ngSubmit)="saveForm()" class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow p-4 mb-5 bg-white rounded" style="width: 400px;">
+    <div class="card-body">
+      <h5 class="card-title text-center mb-4">Login</h5>
+      <div class="form-group mb-3">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" class="form-control">
+        <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+          <span *ngIf="loginForm.controls.email.errors?.['required']" class="text-danger">Email is required.</span>
+          <span *ngIf="loginForm.controls.email.errors?.['email']" class="text-danger">Enter a valid email.</span>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+        <div *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+            <span *ngIf="loginForm.controls.password.errors?.['required']" class="text-danger">Password is required.</span>
+          <span *ngIf="loginForm.controls.password.errors?.['minlength']" class="text-danger">Password must be at least 6 characters long.</span>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
-    <div>
-      <label for="password">Last Name:</label>
-      <input type="password" id="password" formControlName="password">
-      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
-        <span>First name is required.</span>
-      </div>
-    </div>
-  
-    <button [disabled]="loginForm.invalid" type="submit">Submit</button>
-    <br>
-    <br>
-    <button routerLink="/dailytask/result" type="button">Show Result</button>
-  </form>
-  
-  <div class="table-wrapper">
-  
   </div>
+</form>
+
+

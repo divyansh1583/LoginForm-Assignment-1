@@ -5,14 +5,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class LoginAuthService {
-  // time=localStorage.getItem('login_token');
-  // time2=!!localStorage.getItem('login_token');
-  
-  router : any;
-  constructor(private route: Router) {
-      this.router = route
-   }
+
+  constructor(private router: Router) { }
+
   loggedIn() {
-    return (localStorage.getItem('login_token'))?true:false;
+    return (localStorage.getItem('login_token')) ? true : false;
   }
+
 }
