@@ -1,0 +1,26 @@
+<form [formGroup]="loginForm" (ngSubmit)="saveForm()">
+
+    <div>
+      <label for="email">First Name:</label>
+      <input type="text" id="email" formControlName="email">
+      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+        <span>First name is required.</span>
+      </div>
+    </div>
+    <div>
+      <label for="password">Last Name:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="loginForm.controls.email.invalid && loginForm.controls.email.touched">
+        <span>First name is required.</span>
+      </div>
+    </div>
+  
+    <button [disabled]="loginForm.invalid" type="submit">Submit</button>
+    <br>
+    <br>
+    <button routerLink="/dailytask/result" type="button">Show Result</button>
+  </form>
+  
+  <div class="table-wrapper">
+  
+  </div>
